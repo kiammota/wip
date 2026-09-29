@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+        
         if len(os.Args) == 1 {
                 f, e := os.ReadFile(".wip")
                 if e != nil {
@@ -21,6 +22,14 @@ func main() {
                 }
                 println(string(f))
                 return
+        }
+
+        if os.Args[1] == "-h" || os.Args[1] == "--help" {
+        	fmt.Println("Commands:")
+        	fmt.Println("  wip              Show current WIP")
+        	fmt.Println("  wip <message>    Set current WIP")
+        	fmt.Println("  wip -h, --help   Show this help")
+	        return
         }
 
         if len(os.Args) == 2 && os.Args[1] != "ok" {
